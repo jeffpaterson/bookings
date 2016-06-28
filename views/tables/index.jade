@@ -1,0 +1,44 @@
+extends ../layout.jade
+
+block content
+	.row
+		.static.col-sm-12
+			div#tablesPage
+				h1.text-uppercase #{venue.name}
+				div#venueInTables.venueListDiv
+					div.info(class='col col-sm-4')
+						h3 #{venue.street_address}<br />#{venue.city}, #{venue.zipcode}
+						p Music: #{venue.music}
+						p Clientele: #{venue.clientele}
+						div#starsRev
+							img(src=venue.stars)
+							p #{venue.reviews} reviews
+					div.pic(class='col col-sm-offset-4')
+						img.venueImg(src=venue.pic1)
+				div#description
+					p #{venue.description}
+				div
+					div#map
+					div#pano
+				
+				h1 Tables Available Tonight
+
+				div.tableItems
+					each table in tables
+						div.venueListDiv
+							div.info(class='col col-sm-4 ')
+								h3 Table: #{table.name}
+								p #{table.description}
+								p Status: #{table.status}
+									if (table.status === 'open')
+											span.glyphicon.glyphicon-ok-circle.btn-lg
+									else
+											span.glyphicon.glyphicon-remove-circle.btn-lg
+								p Total Cost: $#{table.cost}
+								p Max Table Capacity: #{table.maxCapacity}
+								p Min $/Person: $#{table.cost / table.maxCapacity}
+								a.btn.btn-primary(href='/venues/#{venue.id}/tables/#{table.id}/reservations/new', role='button') JOIN THIS TABLE TONIGHT
+							div.pic(class='col col-sm-offset-4')
+								img.tableImg(src=venue.pic2)
+				script(src="/javascripts/venue_map.js")
+				script(async defer src="https://maps.googleapis.com/maps/api/js?key="+process.env.GOOGLE_MAPS+"&callback=initMap")

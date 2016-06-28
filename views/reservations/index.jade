@@ -1,0 +1,40 @@
+extends ../layout.jade
+
+block content
+	h1 Your Reservations
+	
+	p= message
+
+	table.table.table-bordered
+		tbody
+			tr
+				td Venue Name
+				td Table Name
+				td Date
+				td Seats Reserved
+				td Your Pledged Amount
+			each reservation in reservations
+				tr
+					td= venue.name
+					td= table.name
+					td= moment(reservation.date).format('MMMM DD, YYYY')
+					td= reservation.seats
+					td= reservation.pledge
+	br
+	br
+	br
+
+	h1 Your Table so Far :)
+	div.atYourTable-Div
+		table.table.table-bordered
+			tbody
+				tr
+					td Alias
+					td Their Picture
+					td About them..
+				each user in atTable
+					tr
+						td= user.alias
+						td
+							img(src=user.profile_pic)
+						td.blurb= user.blurb

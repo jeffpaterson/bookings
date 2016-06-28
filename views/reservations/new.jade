@@ -1,0 +1,27 @@
+extends ../layout.jade
+
+block content
+	h1 New Reservation
+
+	//- h4 username: #{user.username}
+	h4 Venue: #{venue.name}
+	h4 Max Capacity: #{table.maxCapacity}
+	h4 Seats Available: #{seatsAvailable}
+	h4#pledgePerSeat Pledge per Seat: $#{table.cost / table.maxCapacity}
+
+
+
+	form#newReservationForm(action='/venues/#{venue.id}/tables/#{table.id}/reservations' method='POST')
+
+		h4 How many seats would you like to reserve?
+		input(type="range" id='seatsWanted' name='reservation[seats]' min='0' max=seatsAvailable value='1' required)
+		h3#seatsWantedView Seats: 0
+		br
+		//- input(type='text' name='reservation[pledge]')
+		h3#pledge Your Pledge: $#{table.cost / table.maxCapacity}
+		input#pledgeInput(type="hidden" name='reservation[pledge]')
+		br
+
+
+		input(type="submit" value='Make Reservation' class='btn')
+		

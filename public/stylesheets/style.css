@@ -1,0 +1,335 @@
+h1, h3, h6, h2 {
+	text-align: center;
+}
+
+/*	LAYOUTS  */
+
+body {
+    background-color: #3f0587;
+    margin: 0 auto;
+    color: #FFFFFF;
+    max-width: 900px;
+}
+
+.subTitle {
+  text-align: left;
+}
+
+#welcome {
+	position: relative;
+	top: -20px;
+	display: inline-block;
+}
+
+.notLayout {
+    max-width: 850px;	
+}
+
+#line {
+	margin-top: -30px;
+	margin-bottom: 40px;
+}
+
+#bigProblem {
+	position: absolute;
+	z-index: 9999999;
+	display: inline-block;
+	right: 15px;
+	top: 75px;
+	background-color: white;
+	color: black;
+}
+
+#bigProblem > .dropdown-menu {
+	position: relative;
+}
+
+#newUser {
+  color: white;
+  text-align: center;
+}
+
+#newUser input{
+	color:black;
+}
+
+#copywrite, #footer {
+  font-size: medium;
+  text-align: center;
+  margin-top: 25px;
+  color: #979696;
+}
+
+.col-md-6 {
+    width:10%;
+    margin:0 2%;
+}
+
+#homepageText {
+  font-size: large;
+  color: #FFFFFF;
+}
+
+#homeLeft {
+  font-size: medium;
+  color: #FFFFFF;
+}
+
+#navBar {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+#fb_icon {
+	position: absolute;
+	top: 10px;
+	right: 70px;
+  	background-color: #3b5998;
+}
+
+#fb_icon > a {
+  color: #FFFFFF
+}
+
+#siteNavBar {
+  background:rgba(0,0,0,0.3);
+  border-color: transparent;
+  color: #FFFFFF;
+}
+
+#selectVenueBtn {
+	margin-bottom: 15px;
+}
+
+#navbarBrand {
+  color:#CCCCCC;
+}
+
+#bigProblem > a {
+  color: #3b5998;
+}
+
+#navCollapse > ul > li > a {
+  color:#CCCCCC;
+}
+
+#carouselCaption {
+  font-size: 100px;
+  font-size: 8vmax;
+  line-height: 1.0;
+  font-weight: bold;
+  display:table-cell;
+  margin:0 auto;
+  margin-bottom: 20px;
+  text-align:center;
+}
+
+#yourAccount {
+  color: #3b5998;
+}
+  
+#profile {
+  background:rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+#map, #pano {
+  float: left;
+  height: 250px;
+  width: 50%;
+}
+
+
+/*	VENUES */
+
+#filterDiv {
+	background-color: rgba(200, 200, 200, 0.2);
+	/*background:rgba(0,0,0,0.3);*/
+
+	text-align: center;
+/*	border: black solid 3px;*/
+	margin-bottom: 10px;
+	/*display: -webkit-box;*/
+}
+
+#filterDiv  h3, h4 {
+	text-align: center;
+}
+
+#venueInTables {
+	display: inline-block;
+	background:rgba(0,0,0,0.3);
+}
+
+.venueListDiv {
+	position: relative;
+	background:rgba(0,0,0,0.3);
+	/*border: solid black 3px;*/
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+
+}
+
+#talbesIndex {
+	margin: 0 auto;
+}
+
+.venueDescription {
+	display: inline-block;
+	position: relative;
+	background-color: rgba(0, 0, 255, 0.2);
+	border: solid black 3px;
+	height: 100%;
+	width: 100%;
+
+	margin-bottom: 10px;
+
+}
+
+
+.venueImg {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin-bottom: 15px;
+	top: -80px;
+}
+
+#starsReviewsiews {
+	position: relative;
+	display: table;
+	background-color: black;
+	top: -296px;
+}
+
+.venueName {
+	margin: 0 auto;
+	background-color: black;
+	margin-bottom: 10px;
+}
+
+.pic {
+	position: relative;
+	top: 90px;
+	height: 100%;
+}
+
+#yelp {
+	background-color: rgba(0,0,0,0.7);
+	display: inline-block;
+	position: absolute;
+	top: -80px;
+	left: 15px;
+    text-align: center;
+}
+
+#yelp1 {
+	position: relative;
+	top: 7px;
+}
+
+.findTable {
+	position: relative;
+	bottom: 7px;
+}
+
+#filterDiv  h4 {
+	color: black;
+}
+
+#filterDiv input {
+	color: black;
+}
+
+#filterDiv form form label {
+	color: black;
+}
+
+.reviewsCheckbox {
+	position: absolute;
+	right: 35px;
+}
+
+/*	TABLES  */
+
+
+
+.tableListDiv {
+	display: inline-block;
+	position: relative;
+	background-color: rgba(0, 0, 255, 0.2);
+	border: solid black 3px;
+	width: 100%;
+
+	margin-bottom: 10px;
+
+}
+
+.tableImg {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	top: -90px;
+}
+
+/*#tablesPage > h2, h3, h4, h5{
+	background-color: black;
+}*/
+
+#description {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: justify;
+}
+
+#large {
+  width: 50%;
+  height: 100px;
+  vertical-align: text-top;
+  word-wrap: normal;
+}
+
+.glyphicon-ok-circle {
+	color: green;
+}
+
+.glyphicon-remove-circle {
+	color: red;
+}
+
+#statusClosed, #statusOpen {
+	background-color: rgba(0,0,0,0);
+}
+
+#tableFull {
+	color: red;
+}
+
+.user-info h4 {
+  text-align: left;
+}
+
+/*My Res*/
+
+#yourReservation,  #atYourTableMyRes  {
+	background-color: black;
+}
+
+.atYourTableDiv {
+	display: inline-block;
+	width: 870px;
+}
+
+.blurb {
+	display: inline-block;
+	width: 538px;
+	height: 108%;
+	word-wrap: break-word;
+	border: none;
+}
+
+#newReservationForm {
+	text-align: center;
+}

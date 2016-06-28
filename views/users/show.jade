@@ -1,0 +1,23 @@
+extends ../layout.jade
+
+block content
+
+  .row
+    .static.col-xs-3
+    .static.col-xs-6#profile
+      h3 Your Account
+      img.img-rounded(src='#{user.profile_pic}', width='175', height='175', vspace='10')
+      div
+        h2 #{user.alias}
+        p Birthday: 
+        h4= moment(user.dob).format("MMMM Do, YYYY")
+        p About Me: 
+        h4 #{user.blurb}
+        a(href="/users/#{user.id}/edit", class="btn btn-lg btn-primary") Edit Your Profile
+        br
+        br
+        br
+        form(action="/users/#{user.id}?_method=DELETE" method="POST")
+          input(type="submit", value="Delete your profile", class="btn btn-sm btn-warning")
+        p
+    .static.col-xs-3

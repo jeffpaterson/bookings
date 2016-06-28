@@ -1,0 +1,47 @@
+extends ../layout.jade
+
+block content
+	h1#yourReservation Your Reservation
+	
+	if (reservations[0])
+		h2 We've submitted your reservation. We wish you a good night out!
+	table.table.table-bordered
+		tbody
+			each reservation, count in reservations
+					tr
+						td
+							h2 Reservation ##{count+1}
+					tr
+						td
+							h3 You are going to: #{venue.name}
+							h3 You will be sitting at table: #{table.name}
+							h6 #{table.description}
+					tr
+						td
+							h3 You have reserved #{reservation.seats} out of #{table.maxCapacity} seats
+					tr
+						td
+							h3 Your pledge amount is: $#{reservation.pledge}
+					tr
+						if (table.status === 'closed')
+							td
+								h3 Your reservation is completed! Please go to host to be seated.
+						else
+							td
+								h3 Please wait while more people fill up your table!
+
+	br
+	h2#atYourTableMyRes Who Will Be At Your Table?
+	div.atYourTableDiv
+		table.table.table-bordered
+			tbody
+				tr
+					td Alias
+					td Their Picture
+					td About them..
+				each user in atTable
+					tr
+						td= user.alias
+						td
+							img(src=user.profile_pic)
+						td.blurb= user.blurb

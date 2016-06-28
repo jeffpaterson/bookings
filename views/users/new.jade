@@ -1,0 +1,18 @@
+extends ../layout.jade
+
+block content
+    h1 Please fill out your profile information
+    h5 *All fields are required*
+    form#newUser(action="/users?_method=PATCH" method='post')
+        input(type="hidden", name="user[fb_id]", value='#{user.fb_id}')
+        h4 Alias (what you want other people to see)
+        input(type="textarea", name="user[alias]", required)
+        h4 Date of birth 
+        input(type="date", name="user[dob]", required)
+        h4 Profile picture 
+        input(type="text", name="user[profile_pic]", required)
+        h4 A litte about you 
+        input#large(type="text", name="user[blurb]", required)
+        br
+        br
+        input(type="submit", value="Complete Sign Up")

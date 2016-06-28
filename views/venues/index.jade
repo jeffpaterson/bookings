@@ -1,0 +1,94 @@
+extends ../layout.jade
+
+block content
+	h1 Venues
+	
+	div.container-fluid
+		div.row
+			div#filterDiv(class='col col-sm-3')
+				div.row
+					h3 Filters
+
+					form(action='/venues/filter' method='GET')
+						h4 Find Your Venue
+					
+						select#venuesList(name='filter[name]')
+							each venue in venuesFilter
+								option(value=venue.name)= venue.name
+						br
+						br
+						h4 Table Available
+						p
+							label Yes
+								&nbsp
+								input(type="checkbox" name='filter[status]' value='open')
+						h4 By minimum seats available:
+						input(type="integer" name='filter[seatsNeeded]' placeholder='Your Seats')
+						br
+						br
+						//- input(type="integer" name='filter[tables]' placeholder='tables available')
+						h4 Max Pledge/Seat
+						input(type="text" name='filter[maxPledge]' placeholder='max $ you want to spend')
+						br
+						br
+						h4 Type of Music
+						select(name='filter[music]')
+							each genre in musicFiltered
+								option(value=genre)= genre
+						h4 Clientele
+						select(name='filter[clientele]')
+							each clientele in clienteleFiltered
+								option(value=clientele)= clientele
+						h4 Number of Reviews
+						p
+							label	<10
+								input.reviewsCheckbox(type="checkbox" name='filter[reviews]' value='<10')
+							br
+							label 10 - 100
+								input.reviewsCheckbox(type="checkbox" name='filter[reviews]' value='10-100')
+							br
+							label >100
+								input.reviewsCheckbox(type="checkbox" name='filter[reviews]' value='>100')
+							br
+						h4 Stars
+						p
+							label 5
+								&nbsp
+								input(type="checkbox" name='filter[stars]' value='5') 
+								&nbsp
+							label 4
+								&nbsp
+								input(type="checkbox" name='filter[stars]' value='4') 
+								&nbsp
+							label 3
+								&nbsp
+								input(type="checkbox" name='filter[stars]' value='3') 
+								&nbsp
+							label 2
+								&nbsp
+								input(type="checkbox" name='filter[stars]' value='2') 
+								&nbsp
+							label 1
+								&nbsp
+								input(type="checkbox" name='filter[stars]' value='1') 
+								&nbsp
+							br
+						input(type='submit' value='Search' class='btn btn-primary')
+
+			div.venueItems(class='col col-sm-9')
+				each venue in venues
+					div.venueListDiv(class='row')
+						div.row.venueName
+							div(class='col-sm-10')
+								h3 #{venue.name} 
+						div.info(class='col col-sm-4')
+							p Address: #{venue.street_address}<br >#{venue.city} (#{venue.zipcode})
+							p Music: #{venue.music}
+							p Clientele: #{venue.clientele}
+							a.btn.btn-primary.findTable(href='/venues/#{venue.id}/tables', role='button') Find your table now
+						div.pic(class='col col-sm-8')
+							img.venueImg(src=venue.pic1)
+							div#yelp
+								div#yelp1
+									img(src=venue.stars)
+									p #{venue.reviews} reviews

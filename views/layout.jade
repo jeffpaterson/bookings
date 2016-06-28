@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+ meta(charset="UTF-8")
+ title LonelyTable
+
+ link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+ link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous")
+ link(href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
+ script(src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous")
+ script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
+ //- script(src='lodash.js')
+ 
+ script(src='/javascripts/script.js' )
+
+ link(rel='stylesheet' href='/stylesheets/style.css')
+
+body
+ html
+  body
+    nav#siteNavBar.navbar.navbar-default
+      .container-fluid
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navCollapse' aria-expanded='false')
+            span.sr-only Toggle navigation
+            br
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          a#navbarBrand.navbar-brand(href='/') LonelyTable
+
+        // Collect the nav links, forms, and other content for toggling
+        #navCollapse.collapse.navbar-collapse
+          ul.nav.navbar-nav.notLayout
+            li
+              a(href='/venues') Venues 
+            li
+              a(href='/getstarted') Get Started
+            li
+              a(href='/about') About
+            li
+              a(href='/contact') Contact  
+
+            if(user)
+             li#bigProblem.dropdown.nav-pill.nav-pill.notLayout
+              a#yourAccount.dropdown-toggle.nav-pill(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                | Your Account 
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='/users/#{user.id}') My Profile 
+                  //- user.id
+                li
+                  a(href='/myres') My Reservations
+                li
+                  a(href='#') Inbox
+                li.divider(role='separator')
+                li
+                  a(href='/auth/logout') Log Out
+            else 
+             button#fb_icon.btn.btn-facebook
+              a(href='/auth/facebook')
+               //- i.fa.fa-facebook
+               | Sign in with Facebook
+        // /.navbar-collapse
+      // /.container-fluid
+ 
+  div#notLayout.container-fluid
+    if(user)
+      div#welcome
+        h2 Welcome, #{user.username}
+      div#line
+        hr
+    block content
+
+ 

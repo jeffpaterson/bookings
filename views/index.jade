@@ -1,0 +1,51 @@
+//-APP HOMEPAGE
+extends ./layout.jade
+
+block content
+
+ div#homepageCarousel.carousel.slide(data-ride='carousel')
+  // Indicators
+  ol.carousel-indicators
+    li.active(data-target='#homepageCarousel', data-slide-to='0')
+    li(data-target='#homepageCarousel', data-slide-to='1')
+    li(data-target='#homepageCarousel', data-slide-to='2')
+    li(data-target='#homepageCarousel', data-slide-to='3')
+  // Wrapper for slides
+  .carousel-inner(role='listbox')
+    .item.active
+      img(src='/images/lasers.jpg', alt='LonelyTable')
+      #carouselCaption.carousel-caption
+        |LonelyTable
+    .item
+      img(src='/images/club1.JPG', alt='LonelyTable')
+      #carouselCaption.carousel-caption
+        |for a great night out
+    .item
+      img(src='/images/club2.jpg', alt='LonelyTable')
+      #carouselCaption.carousel-caption
+        |friends new and old
+    .item
+      img(src='/images/bottles1.jpg', alt='LonelyTable')
+      #carouselCaption.carousel-caption
+        |sign in with Facebook
+  // Controls
+  a.left.carousel-control(href='#homepageCarousel', role='button', data-slide='prev')
+    span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+    span.sr-only Previous
+  a.right.carousel-control(href='#homepageCarousel', role='button', data-slide='next')
+    span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+    span.sr-only Next
+ div#homepageText
+  p LonelyTable makes it easy and affordable to reserve one or more seats at a VIP table at an upscale club without having to reserve and pay for the entire table. We currently serve the San Francisco Bay Area, and we're expanding fast!
+ .row
+    .static.col-xs-6
+      div#homeLeft
+        h2 Getting Started
+        p Simply sign in via Facebook to reserve your seat at a table tonight! Choose an open table at the venue of your choice and reserve as many seats as you need for your party. Once your table fills up, your reservation will be confirmed with the club. You will be charged for the number of seats in your reservation only. Then all that's left is to enjoy the night and make some new friends.
+        a.btn.btn-primary(href='/getstarted', role='button') Need more help?
+    .static.col-xs-6
+      div#homeLeft
+        h2 About Us
+        p We work with the most popular clubs to open up unreserved tables to individuals and groups who are unable to fill the entire capacity of a table but still want to enjoy all the perks of bottle service. Treat a small group of your friends or have your friends place reservations for the same table in order to split the bill. It's time for some fun. 
+        a.btn.btn-primary(href='/about', role='button') More about us
+ include includes/foot.jade

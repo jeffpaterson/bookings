@@ -1,0 +1,23 @@
+extends ../layout.jade
+
+block content
+
+    .row
+        .static.col-xs-2
+        .static.col-xs-8#profile
+            h2 Edit your profile info
+            form#newUser(action="/users/#{user.id}?_method=PUT" method='post')
+                fieldset(class="form-group")
+                    input(type="hidden", name="user[fb_id]", value='#{user.fb_id}', class="form-control")
+                    h4 Your name:
+                    input(type="textarea", name="user[alias]", value="#{user.alias}", class="form-control", required)
+                    h4 A link your profile image:
+                    input(type="text", name="user[profile_pic]", value="#{user.profile_pic}", class="form-control" required)
+                    h4 What should people know about you? 
+                    input(type="text", name="user[blurb]", value="#{user.blurb}", class="form-control" required)
+                    h4 All fields are required
+                    input(type="submit", value="Edit your profile", class="btn btn-lg btn-primary")
+                    p
+        .static.col-xs-2
+    .row
+extends ../layout.jade
