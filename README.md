@@ -4,8 +4,14 @@
 
 <img src="public/images/home.jpg" alt="Homepage">
 
+Venues, and tables, with filters.
+
 <img src="public/images/venues.jpg" alt="">
 
+Available tables, includes Google Maps and Yelp! API's.
+
 <img src="public/images/nightclub.jpg" alt="">
+
+Authenticaion via Facebook, with sessions.
 
 <img src="public/images/logged.jpg" alt="">
